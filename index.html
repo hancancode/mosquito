@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>모기</title>
+	<style type="text/css">
+		html{cursor: url(./img/cursor.png) 10 10, auto;}
+		body{ background-color: black; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; }
+		.position{position: absolute;}
+		#mosquito1 { width: 7vw; left: 10vw; top: 20vw; }
+		#mosquito2 { width: 7vw; right: 30vw; top: 40vw; }
+		#mosquito3 { width: 7vw; right: 50vw; bottom: 10vw; }
+
+html:active {
+			cursor: url('./img/cursor-pressed.png') 20 20, auto;}
+@keyframes fadeout{
+	from{opacity: 100%;}
+	to{opacity: 0%;}
+
+}
+
+
+
+	</style>
+</head>
+<body>
+	<img src="./img/mosquito.png" class="position" id="mosquito1">
+	<img src="./img/mosquito.png" class="position" id="mosquito2">
+	<img src="./img/mosquito.png" class="position" id="mosquito3">
+
+
+
+
+<script type="text/javascript">
+	mosquito1.onclick = function(){
+
+		mosquito1.style.animation = "fadeout 0.5s forwards ease-in-out alternate";
+		mosquito1.style.filter = "invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg) brightness(97%) contrast(113%)";
+	}
+
+	mosquito2.onclick = function(){
+
+		mosquito2.style.animation = "fadeout 0.5s forwards ease-in-out alternate";
+		mosquito2.style.filter = "invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg) brightness(97%) contrast(113%)";
+	}
+
+	mosquito3.onclick = function(){
+
+	mosquito3.style.animation = "fadeout 0.5s forwards ease-in-out alternate";
+	mosquito3.style.filter = "invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg) brightness(97%) contrast(113%)";
+	}
+
+
+		// 클릭된 모기의 개수를 추적하는 변수
+		let clickCount = 0;
+		const totalMosquitoes = 3; // 전체 모기의 수
+
+		// 배경을 변경하는 함수
+		function changeBackground() {
+			document.body.style.background = "url('./img/comfyroom.jpg')"; 
+			document.body.style.backgroundSize = "cover"; 
+			document.body.style.backgroundRepeat = "no-repeat"; 
+
+
+			document.body.style.overflow = "hidden"
+			 // 원하는 배경색으로 변경
+		}
+
+
+			function mosquitoClick(event) {
+			// 클릭된 모기 개수 증가
+			clickCount++;
+
+			// 모든 모기가 클릭되면 배경 변경
+			if (clickCount === totalMosquitoes) {
+				changeBackground();
+			}
+}
+		// 모든 모기 이미지에 클릭 이벤트 리스너 추가
+		document.querySelectorAll('img').forEach(img => {
+			img.addEventListener('click', mosquitoClick);
+		});
+</script>
+</body>
+</html>
